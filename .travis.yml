@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- 12.20.3
+
+script:
+  - npm run test
+  - npm run build
+  
+after_success:
+  - npm run deploy
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set as a secure variable
+    keep_history: false # force push must be used to write to gh-pages
+    on:
+      branch: main
