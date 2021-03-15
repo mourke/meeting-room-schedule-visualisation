@@ -24,7 +24,6 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
         this.state = {
             index: 0
         }
-        console.log(props.pages[0])
     }
 
     sidebar() {
@@ -36,8 +35,8 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
             <Container fluid>
                 <Row>
                     <Col xs={1}>{this.sidebar()}</Col>
-                    <Col>{this.props.pages[0].mainView}</Col>
-                    <Col xs={4}>{this.props.pages[0].detailView}</Col>
+                    <Col>{this.props.pages[this.state.index].mainView}</Col>
+                    <Col xs={4}>{this.props.pages[this.state.index].detailView}</Col>
                 </Row>
             </Container>
         )
