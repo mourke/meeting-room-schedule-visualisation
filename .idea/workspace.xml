@@ -2,18 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CalendarView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CalendarView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LoginView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MeetingsOverviewView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MeetingsOverviewView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1ohtK31dmSPWGbVyD9EDxm83ox8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,6 +57,7 @@
     <property name="javascript.karma.karma_node_package_dir" value="" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -37,6 +69,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
     <property name="ts.external.directory.path" value="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -83,6 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613750582710</updated>
       <workItem from="1613750584442" duration="1784000" />
+      <workItem from="1615814248035" duration="12008000" />
     </task>
     <servers />
   </component>
