@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +65,11 @@
     <property name="ts.external.directory.path" value="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -103,7 +112,8 @@
       <option name="presentableId" value="Default" />
       <updated>1613750582710</updated>
       <workItem from="1613750584442" duration="1784000" />
-      <workItem from="1615814248035" duration="12320000" />
+      <workItem from="1615814248035" duration="12498000" />
+      <workItem from="1615891366159" duration="7241000" />
     </task>
     <servers />
   </component>

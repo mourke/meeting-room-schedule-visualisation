@@ -1,0 +1,14 @@
+.toolbar {
+    background-color: #6a53e4;
+    height: 100vh;
+    width: 50px;
+}
+
+.toolbar-items-section {
+    position: absolute;
+    top: 45%;
+}
+
+.toolbar-item {
+    margin-left: 8px;
+}
