@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MeetingsOverviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeetingsOverviewView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,7 @@
       <workItem from="1613750584442" duration="1784000" />
       <workItem from="1615814248035" duration="12498000" />
       <workItem from="1615891366159" duration="7375000" />
-      <workItem from="1615976107950" duration="6534000" />
+      <workItem from="1615976107950" duration="7137000" />
     </task>
     <servers />
   </component>
