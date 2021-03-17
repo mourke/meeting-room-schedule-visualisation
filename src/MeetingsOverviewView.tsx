@@ -12,6 +12,10 @@ type MeetingsOverviewViewProps = {
 export default class MeetingsOverviewView extends React.Component<MeetingsOverviewViewProps, MeetingsOverviewViewState> {
 
     render() {
-        return <div>Overview view</div>;
+        return (
+            <div>
+                <h5>Meetings</h5>
+            </div>
+        );
     }
 }

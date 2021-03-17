@@ -22,9 +22,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
     constructor(props: SidebarSplitViewControllerProps) {
         super(props);
 
-        this.state = {
-            index: 0
-        }
+        this.state = {index: 0};
     }
 
     currentPage() {
@@ -33,10 +31,14 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
 
     activityIndicatorForIndex(index: number) {
         if (this.state.index == index) {
-            return <img className="toolbar-active-indicator" src={activeIndicator}/>;
+            return <img className="toolbar-active-indicator" src={activeIndicator} alt={"Active"}/>;
         } else {
             return undefined;
         }
+    }
+
+    changeTab(index: number) {
+        this.setState({index: index});
     }
 
     sidebar() {
@@ -49,9 +51,9 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
                     {
                         this.props.pages.map((value, index) => {
                             return (
-                                <div>
+                                <div className={"toolbar-item"}>
                                     {this.activityIndicatorForIndex(index)}
-                                    <img style={{opacity: this.state.index == index ? "100%" : "40%"}} className="toolbar-item" src={value.icon}/>
+                                    <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index == index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon}/>
                                 </div>
                             );
                         })
@@ -67,7 +69,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
                 <Row>
                     {this.sidebar()}
                     <Col>{this.currentPage().mainView}</Col>
-                    <Col xs={4}>{this.currentPage().detailView}</Col>
+                    <Col className="splitview-detail-column" xs={4}>{this.currentPage().detailView}</Col>
                 </Row>
             </Container>
         )

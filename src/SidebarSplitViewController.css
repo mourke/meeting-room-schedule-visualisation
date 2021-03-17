@@ -6,9 +6,21 @@
 
 .toolbar-items-section {
     position: absolute;
-    top: 45%;
+    top: 35%;
+}
+
+.toolbar-item-img {
+    margin-left: 11px;
+}
+
+.toolbar-active-indicator {
+    margin-right: -3px; /* counter the width of the indicator */
 }
 
 .toolbar-item {
-    margin-left: 8px;
+    margin-bottom: 40px;
+}
+
+.splitview-detail-column {
+    border-left: 1px lightgray solid;
 }
