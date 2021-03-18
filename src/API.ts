@@ -1,44 +1,46 @@
 import { Client } from "@microsoft/microsoft-graph-client";
-export {API}
+import { strict as assert } from 'assert';
 
 
-namespace API {
-    const ENDPOINT = "https://graph.microsoft.com/v1.0/me/calendars";
+export type Room = {
+    name: string
+    id: string
+}
+
+export namespace API {
+    let client: Client
 
     /*
     * description: fetches the list of calendar names and their IDs
-    * input: client object
-    * output: two dimensional string array containing an array of names and an array of IDs
-    * example output: [["name1", "name2", "name3"]["ID1", "ID2", "ID3"]]
+    * input: -
+    * output: array of the Room type
     * */
-    export function getListOfCalendarNamesAndIDs(client:any): string[][] {
-        let calendars = client.api.get(ENDPOINT);
-
-        let namesAndIDs:string[][] = [[],[]]
-        for(let i=0; i<calendars.value.length; i++){
-            let name:string = calendars.value[i].name;
-            let id:string = calendars.value[i].id;
-            namesAndIDs[0].push(name)
-            namesAndIDs[1].push(id)
+    export async function getListOfCalendarNamesAndIDs():Promise<Room[]> {
+        assert(client, "Client must be initialised to call API methods.");
+        const calendars = await client.api("/me/calendar").get()
+        let rooms:Room[] = []
+        for (let value of calendars.value) {
+            rooms.push(value.name)
+            rooms.push(value.id)
         }
-        return namesAndIDs
+        return rooms
     }
 
     /*
      * description: fetches the calendar with the specified ID
-     * input: client object, id of calendar
+     * input: id of calendar in string form
      * output: Calendar object if fetch successful
-     *         -1 if fetch not successful(no corresponding ID)
+     *         Undefined if fetch not successful (no corresponding ID)
      * */
-    export function getCalendar(client:any, id:string){
-        let calendars = client.api.get(ENDPOINT);
-
-        for(let i=0; i<calendars.value.length; i++){
-            if(id == calendars.value[i].id){
-                return calendars.value[i]
+    export async function getCalendar(id:string):Promise<object | undefined> {
+        assert(client, "Client must be initialised to call API methods.");
+        const calendars = await client.api("/me/calendar").get()
+        for (let value of calendars.value) {
+            if (id == value.id) {
+                return value
             }
         }
-        return -1
+        return undefined
     }
 
 }
