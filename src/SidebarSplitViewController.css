@@ -10,11 +10,14 @@
 }
 
 .toolbar-item-img {
-    margin-left: 11px;
+    margin-left: 7px;
+    height: 40px; /* make same height as active indicator to avoid jumping around */
+    width: 40px; /* make all images the same width */
+    object-fit: none; /* but don't adjust the image size/aspect ratio just the frame size */
 }
 
 .toolbar-active-indicator {
-    margin-right: -3px; /* counter the width of the indicator */
+    margin-right: -4px; /* counter the width of the indicator */
 }
 
 .toolbar-item {
