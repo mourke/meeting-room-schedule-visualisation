@@ -1,0 +1,26 @@
+.toolbar {
+    background-color: #6a53e4;
+    height: 100vh;
+    width: 50px;
+}
+
+.toolbar-items-section {
+    position: absolute;
+    top: 35%;
+}
+
+.toolbar-item-img {
+    margin-left: 11px;
+}
+
+.toolbar-active-indicator {
+    margin-right: -3px; /* counter the width of the indicator */
+}
+
+.toolbar-item {
+    margin-bottom: 40px;
+}
+
+.splitview-detail-column {
+    border-left: 1px lightgray solid;
+}
