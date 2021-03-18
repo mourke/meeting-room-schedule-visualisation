@@ -1,4 +1,4 @@
-import { Client } from "@microsoft/microsoft-graph-client";
+import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
 
 
