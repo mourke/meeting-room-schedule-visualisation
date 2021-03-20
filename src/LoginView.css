@@ -1,0 +1,61 @@
+.login-background {
+    height: 100vh;
+    background-image: url('./images/Login background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-header-text {
+    margin-top: 95px;
+    color: #393a6d;
+    font-weight: 700;
+}
+
+.login-information-text {
+    font-size: medium;
+    margin-top: 25px;
+    color: lightgray;
+}
+
+.login-button:before {
+    content: url('./images/icons/Outlook.svg');
+    display: inline-block;
+    width: 30px;
+    left: 10px;
+    top: 13px;
+    position: absolute;
+}
+
+.login-button {
+    border-radius: 0.5rem !important;
+    position: relative;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 55px !important;
+    margin-top: 35px;
+    background-color: #6a53e4 !important;
+    color: white !important;
+    font-size: large !important;
+}
+
+.login-copyright-text {
+    position: absolute;
+    bottom: 20px;
+    font-size: small;
+    color: lightgray;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+
+.login-popover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    margin: -250px 0 0 -250px; /* apply negative top and left margins to truly center the element */
+    background-color: white;
+    border-radius: 25px;
+}

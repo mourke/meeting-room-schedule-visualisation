@@ -6,7 +6,7 @@
 
 .toolbar-items-section {
     position: absolute;
-    top: 35%;
+    top: 30%;
 }
 
 .toolbar-item-img {
@@ -21,7 +21,7 @@
 }
 
 .toolbar-item {
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 .splitview-detail-column {

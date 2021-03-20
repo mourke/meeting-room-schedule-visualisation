@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/images/Login background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/icons/Outlook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/Active indicator.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/icons/Active indicator.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/Calendar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/icons/Calendar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/Meetings overview.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/icons/Meetings overview.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/Settings.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/icons/Settings.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +76,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images\icons" />
+      <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src" />
     </key>
   </component>
@@ -112,6 +126,7 @@
       <workItem from="1615814248035" duration="12498000" />
       <workItem from="1615891366159" duration="7375000" />
       <workItem from="1615976107950" duration="7137000" />
+      <workItem from="1616242036528" duration="8473000" />
     </task>
     <servers />
   </component>
