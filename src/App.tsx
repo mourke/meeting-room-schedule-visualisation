@@ -3,8 +3,8 @@ import SidebarSplitViewController from './SidebarSplitViewController'
 import LoginView from "./LoginView";
 import MeetingsOverviewView from "./MeetingsOverviewView";
 import CalendarView from "./CalendarView";
-import calendar from './icons/Calendar.svg'
-import settings from './icons/Settings.svg'
+import calendar from './images/icons/Calendar.svg'
+import settings from './images/icons/Settings.svg'
 
 export const APP_COLOR = "#6a53e4";
 
@@ -22,7 +22,7 @@ function App() {
 }
 
 function isSignedIn() {
-  return true; // TODO: Implement this to read from browser storage
+  return false; // TODO: Implement this to read from browser storage
 }
 
 export default App;
