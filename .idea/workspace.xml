@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/Room.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/CalendarView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalendarView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CalendarView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeetingsOverviewView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Person.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeetingsOverviewView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SidebarSplitViewController.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SidebarSplitViewController.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +30,7 @@
       <list>
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -78,6 +88,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\views" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images\icons" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src" />
@@ -130,6 +141,7 @@
       <workItem from="1615976107950" duration="7137000" />
       <workItem from="1616242036528" duration="9131000" />
       <workItem from="1616417040518" duration="3302000" />
+      <workItem from="1616433509319" duration="9367000" />
     </task>
     <servers />
   </component>

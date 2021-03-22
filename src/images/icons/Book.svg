@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="17px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>🎨 Icon Сolor</title>
+    <defs>
+        <path d="M2.982,4.3356 C3.288,4.0986 3.681,4.0156 4.058,4.1106 L4.058,4.1106 L11,5.8936 L11,20.1606 L3.438,18.2186 C2.886,18.0776 2.5,17.5796 2.5,17.0076 L2.5,17.0076 L2.5,5.3226 C2.5,4.9346 2.676,4.5756 2.982,4.3356 Z M19.9386,4.1109 C20.3196,4.0129 20.7106,4.0979 21.0176,4.3359 C21.3246,4.5749 21.4996,4.9349 21.4996,5.3219 L21.4996,5.3219 L21.4996,17.0079 C21.4996,17.5789 21.1146,18.0769 20.5616,18.2189 L20.5616,18.2189 L12.9996,20.1599 L12.9996,5.8939 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Solid-/-book-open-fill" transform="translate(-2.000000, -4.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

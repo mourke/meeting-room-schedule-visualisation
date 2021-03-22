@@ -1,0 +1,46 @@
+.meetings-overview-scroll-container {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.meetings-overview-heading {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.meetings-overview-empty-view {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.meetings-overview-empty-view-header {
+    color: gray;
+}
+
+.meetings-overview-empty-view-message {
+    color: gray;
+}
+
+.meetings-overview-loading-view {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meetings-overview-loading-view-spinner {
+    border: 8px solid lightgray;
+    border-top: 8px solid #6a53e4;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

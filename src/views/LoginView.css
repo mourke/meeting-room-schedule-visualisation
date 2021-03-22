@@ -1,6 +1,6 @@
 .login-background {
     height: 100vh;
-    background: url('./images/Login background.jpg') no-repeat center;
+    background: url('../images/Login background.jpg') no-repeat center;
     background-size: cover;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .login-button:before {
-    content: url('./images/icons/Outlook.svg');
+    content: url('../images/icons/Outlook.svg');
     display: inline-block;
     width: 30px;
     left: 10px;

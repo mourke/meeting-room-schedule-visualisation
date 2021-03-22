@@ -1,7 +1,7 @@
 import './SidebarSplitViewController.css';
 import React from 'react';
 import {Col, Container, Row} from "react-bootstrap";
-import activeIndicator from './images/icons/Active indicator.svg'
+import activeIndicator from '../images/icons/Active indicator.svg'
 
 type SidebarSplitViewControllerState = {
     index: number

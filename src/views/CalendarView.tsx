@@ -6,7 +6,6 @@ type CalendarViewState = {
 }
 
 type CalendarViewProps = {
-    meetings: object
 }
 
 export default class CalendarView extends React.Component<CalendarViewProps, CalendarViewState> {
