@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/meeting-room-schedule-visualisation/static/css/main.91928855.chunk.css",
-    "main.js": "/meeting-room-schedule-visualisation/static/js/main.a1d2a653.chunk.js",
-    "main.js.map": "/meeting-room-schedule-visualisation/static/js/main.a1d2a653.chunk.js.map",
+    "main.css": "/meeting-room-schedule-visualisation/static/css/main.86f1aeab.chunk.css",
+    "main.js": "/meeting-room-schedule-visualisation/static/js/main.c2436393.chunk.js",
+    "main.js.map": "/meeting-room-schedule-visualisation/static/js/main.c2436393.chunk.js.map",
     "runtime-main.js": "/meeting-room-schedule-visualisation/static/js/runtime-main.e2bdf293.js",
     "runtime-main.js.map": "/meeting-room-schedule-visualisation/static/js/runtime-main.e2bdf293.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/meeting-room-schedule-visualisation/static/css/2.4c97ca4f.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.93d44c8b.chunk.js.map": "/meeting-room-schedule-visualisation/static/js/3.93d44c8b.chunk.js.map",
     "index.html": "/meeting-room-schedule-visualisation/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.91928855.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/main.91928855.chunk.css.map",
+    "static/css/main.86f1aeab.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/main.86f1aeab.chunk.css.map",
     "static/js/2.60418d84.chunk.js.LICENSE.txt": "/meeting-room-schedule-visualisation/static/js/2.60418d84.chunk.js.LICENSE.txt",
     "static/media/Active indicator.a5368acb.svg": "/meeting-room-schedule-visualisation/static/media/Active indicator.a5368acb.svg",
     "static/media/Calendar.bb613596.svg": "/meeting-room-schedule-visualisation/static/media/Calendar.bb613596.svg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.e2bdf293.js",
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.60418d84.chunk.js",
-    "static/css/main.91928855.chunk.css",
-    "static/js/main.a1d2a653.chunk.js"
+    "static/css/main.86f1aeab.chunk.css",
+    "static/js/main.c2436393.chunk.js"
   ]
 }
