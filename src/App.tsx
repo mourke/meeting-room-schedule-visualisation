@@ -6,15 +6,15 @@ import CalendarView from "./CalendarView";
 import calendar from './images/icons/Calendar.svg'
 import settings from './images/icons/Settings.svg'
 
-export const APP_COLOR = "#6a53e4";
+// export const APP_COLOR = "#6a53e4";
 
 function App() {
   if (isSignedIn()) {
-    let meetings: any[] = []; // TODO: fetch from API
+    const meetings: any[] = []; // TODO: fetch from API
     const mainView = <CalendarView meetings={meetings}/>;
     const detailView = <MeetingsOverviewView meetings={meetings}/>;
-    const mainPage = {mainView:mainView, detailView:detailView, icon:calendar};
-    const settingsPage = {mainView:mainView, detailView: detailView, icon:settings}
+    const mainPage = {mainView, detailView, icon:calendar};
+    const settingsPage = {mainView, detailView, icon:settings}
     return <SidebarSplitViewController  pages={[mainPage, settingsPage]}/>;
   } else {
     return <LoginView />;

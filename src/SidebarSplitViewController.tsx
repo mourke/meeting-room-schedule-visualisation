@@ -30,7 +30,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
     }
 
     activityIndicatorForIndex(index: number) {
-        if (this.state.index == index) {
+        if (this.state.index === index) {
             return <img className="toolbar-active-indicator" src={activeIndicator} alt={"Active"}/>;
         } else {
             return undefined;
@@ -53,7 +53,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
                             return (
                                 <div className={"toolbar-item"}>
                                     {this.activityIndicatorForIndex(index)}
-                                    <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index == index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon}/>
+                                    <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index === index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon}/>
                                 </div>
                             );
                         })

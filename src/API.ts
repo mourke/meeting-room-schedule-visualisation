@@ -18,8 +18,8 @@ export namespace API {
     export async function getListOfCalendarNamesAndIDs():Promise<Room[]> {
         assert(client, "Client must be initialised to call API methods.");
         const calendars = await client.api("/me/calendar").get()
-        let rooms:Room[] = []
-        for (let value of calendars.value) {
+        const rooms:Room[] = []
+        for (const value of calendars.value) {
             rooms.push(value.name)
             rooms.push(value.id)
         }
@@ -35,7 +35,7 @@ export namespace API {
     export async function getCalendar(id:string):Promise<object | undefined> {
         assert(client, "Client must be initialised to call API methods.");
         const calendars = await client.api("/me/calendar").get()
-        for (let value of calendars.value) {
+        for (const value of calendars.value) {
             if (id == value.id) {
                 return value
             }
