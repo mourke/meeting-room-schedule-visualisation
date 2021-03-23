@@ -8,8 +8,7 @@ export type Room = {
 }
 
 export namespace API {
-    import DateTimeFormat = Intl.DateTimeFormat;
-    let client: Client
+    let client: Client = Client.initWithMiddleware({})
 
     /*
     * description: fetches the list of calendar names and their IDs
@@ -45,16 +44,26 @@ export namespace API {
     /*
     * description: fetches the meetings for a calender with a certain ID or name within a specified date range in a sorted manner
     * input: id OR name of calendar in string form
-    *        startDateTime in string format "YYYY-MM-DDTHH:MM:SS" eg "2020-12-30T00:00:00"
-    *        endDateTime in string format "YYYY-MM-DDTHH:MM:SS" eg "2020-12-30T023:59:59"
-    * output: meetings object array if fetch successful (last element = most recent)
+    *        startDate typescript Date object
+    *        endDate typescript Date object
+    * output: dictionary with dates and keys and arrays of meeting objects as values (first element = most recent)
     *         undefined if fetch not successful
     * */
-    export async function getMeetings(id:string, startDateTime:string, endDateTime:string):Promise<object[]|undefined> {
+    export async function getMeetings(id:string, startDate:Date, endDate:Date):Promise<{[key:string]: object[]}|undefined> {
         assert(client, "Client must be initialised to call API methods.");
-        const meetings = await client.api("/me/calendars/" + id + "/calendarView?startDateTime= " + startDateTime + "&endDateTime= " + endDateTime + "&orderby=start/dateTime").get()
+        const startDateTime:string = startDate.getFullYear() + "-" + startDate.getMonth() + "-" + startDate.getDay() + "T" + startDate.getHours() + ":" + startDate.getMinutes() + ":" + startDate.getSeconds()
+        const endDateTime:string  = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDay() + "T" + endDate.getHours() + ":" + endDate.getMinutes() + ":" + endDate.getSeconds()
+        const meetings = await client.api("https://graph.microsoft.com/v1.0/me/calendars/" + id + "/calendarView?startDateTime= " + startDateTime + "&endDateTime= " + endDateTime + "&orderby=start/dateTime").get()
         if (meetings.hasOwnProperty("value")) {
-            return meetings.value
+            let dateMeetingDictionary: {[key:string]: object[]} = {}
+            for (let meeting of meetings) {
+                const meetingDate = meeting.start.dateTime.split("T").pop()
+                if (!dateMeetingDictionary[meetingDate]) {
+                    dateMeetingDictionary[meetingDate] = []
+                }
+                dateMeetingDictionary[meetingDate].push(meeting)
+            }
+            return dateMeetingDictionary
         }
         return undefined
     }
@@ -62,7 +71,7 @@ export namespace API {
     /*
     * description: fetches TODAYS meetings for a calender with a certain ID or name in a sorted manner
     * input: id OR name of calendar in string form
-    * output: meetings object array if fetch successful (last element = most recent)
+    * output: array of meeting objects (first element = most recent)
     *         undefined if fetch not successful
     * */
     export async function getMeetingsToday(id:string):Promise<object[]|undefined> {
@@ -70,9 +79,9 @@ export namespace API {
         const today = new Date();
         const startDateTime = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDay() + "T00:00:00"
         const endDateTime = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDay() + "T23:59:59"
-        const calendarEvents = await client.api("/me/calendars/" + id + "/calendarView?startDateTime= " + startDateTime + "&endDateTime= " + endDateTime + "&orderby=start/dateTime").get()
-        if (calendarEvents.hasOwnProperty("value")) {
-            return calendarEvents.value
+        const meetings = await client.api("/me/calendars/" + id + "/calendarView?startDateTime= " + startDateTime + "&endDateTime= " + endDateTime + "&orderby=start/dateTime").get()
+        if (meetings.hasOwnProperty("value")) {
+            return meetings
         }
         return undefined
     }

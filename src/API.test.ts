@@ -30,8 +30,8 @@ test.skip("getMeetings", () => {
     let rooms:Room[] = []
     API.getListOfCalendarNamesAndIDs().then((value) =>  {rooms = value})
     const idOfFirstRoom = rooms[0].id
-    let events:object[]|undefined
-    API.getMeetings(idOfFirstRoom, "2021-00-00T00:00:00", "2021-12-12T23:59:59").then((value) =>  {events = value})
+    let events:{[key:string]: object[]}|undefined
+    API.getMeetings(idOfFirstRoom, new Date("2012-12-12"), new Date("2015-12-12")).then((value) =>  {events = value})
     expect(events).not.toMatchObject(typeof undefined)
 })
 
