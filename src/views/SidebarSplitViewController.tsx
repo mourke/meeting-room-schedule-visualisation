@@ -1,6 +1,6 @@
-import './SidebarSplitViewController.css';
-import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import './SidebarSplitViewController.css'
+import React from 'react'
+import {Col, Container, Row} from 'react-bootstrap'
 import activeIndicator from '../images/icons/Active indicator.svg'
 
 type SidebarSplitViewControllerState = {
@@ -9,7 +9,7 @@ type SidebarSplitViewControllerState = {
 
 type SidebarSplitViewControllerChildren = {
     mainView: React.ComponentElement<any, any>
-    detailView: React.ComponentElement<any, any>
+    detailView?: React.ComponentElement<any, any>
     icon: string
 }
 
@@ -20,9 +20,9 @@ type SidebarSplitViewControllerProps = {
 export default class SidebarSplitViewController extends React.Component<SidebarSplitViewControllerProps, SidebarSplitViewControllerState> {
 
     constructor(props: SidebarSplitViewControllerProps) {
-        super(props);
+        super(props)
 
-        this.state = {index: 0};
+        this.state = {index: 0}
     }
 
     currentPage() {
@@ -31,14 +31,14 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
 
     activityIndicatorForIndex(index: number) {
         if (this.state.index === index) {
-            return <img className="toolbar-active-indicator" src={activeIndicator} alt={"Active"}/>;
+            return <img className="toolbar-active-indicator" src={activeIndicator} alt={"Active"}/>
         } else {
-            return undefined;
+            return undefined
         }
     }
 
     changeTab(index: number) {
-        this.setState({index: index});
+        this.setState({index: index})
     }
 
     sidebar() {
@@ -55,7 +55,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
                                     {this.activityIndicatorForIndex(index)}
                                     <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index === index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon}/>
                                 </div>
-                            );
+                            )
                         })
                     }
                 </div>
@@ -64,12 +64,20 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
     }
 
     render() {
+        let detail: JSX.Element | undefined
+
+        if (this.currentPage().detailView !== undefined) {
+            detail = <Col className="splitview-detail-column" xs={3}>{this.currentPage().detailView}</Col>
+        } else {
+            detail = undefined
+        }
+
         return (
             <Container fluid>
                 <Row>
                     {this.sidebar()}
                     <Col>{this.currentPage().mainView}</Col>
-                    <Col className="splitview-detail-column" xs={4}>{this.currentPage().detailView}</Col>
+                    {detail}
                 </Row>
             </Container>
         )

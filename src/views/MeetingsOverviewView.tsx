@@ -1,7 +1,11 @@
 import './MeetingsOverviewView.css'
 import React from 'react'
 //import API from '../API'
-import {Event as Meeting} from '../models/Event'
+import {Event as Meeting, EventType} from '../models/Event'
+import Book from '../images/icons/Book.svg'
+import Camera from '../images/icons/Camera.svg'
+import Group from '../images/icons/Group.svg'
+import Present from '../images/icons/Present.svg'
 
 type MeetingsOverviewViewState = {
     loading: boolean
@@ -27,7 +31,75 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
     componentDidMount() {
         this.setState({loading: true})
 
+        const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+
         // Call API
+        this.meetings = [{
+            name: "Meeting with John",
+            overview: "Sample meeting overview.",
+            time: new Date(),
+            duration: 60,
+            category: EventType.conference,
+            attendees: [
+                {name: "John", image: testImageURL, email: "john@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+        },
+            {
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.birthday,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
+            {
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.call,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
+            {
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.catchup,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
+            {
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.conference,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
+            {
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.conference,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            }]
 
         this.setState({loading: false, empty: this.meetings.length === 0, error: undefined})
     }
@@ -56,29 +128,76 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         )
     }
 
+    static readonly MINUTES_IN_MILLISECONDS = 60000
+
+    meetingStringFromMeeting(meeting: Meeting) {
+        const start = meeting.time
+        const end = new Date(start.getTime() + meeting.duration*MeetingsOverviewView.MINUTES_IN_MILLISECONDS)
+
+        const addLeadingZero = (time: number) => `0${time}`.slice(-2)
+        return `${addLeadingZero(start.getHours())}:${addLeadingZero(start.getMinutes())} - ${addLeadingZero(end.getHours())}:${addLeadingZero(end.getMinutes())}`
+    }
+
+    imageForMeetingCategory(category: EventType) {
+        switch (category) {
+            case EventType.conference:
+                return Group
+            case EventType.birthday:
+                return Present
+            case EventType.call:
+                return Camera
+            case EventType.catchup:
+                return Book
+        }
+    }
+
+    cssFilterForMeetingCategory(category: EventType) {
+        // colours generated from https://codepen.io/sosuke/pen/Pjoqqp using code from https://stackoverflow.com/a/43960991/604861
+        // we could alternatively just put the function here but the code would have to be torn apart to return exactly what we want
+        switch (category) {
+            case EventType.conference:
+                return "invert(62%) sepia(8%) saturate(7333%) hue-rotate(215deg) brightness(104%) contrast(101%)"
+            case EventType.birthday:
+                return "invert(49%) sepia(78%) saturate(2895%) hue-rotate(338deg) brightness(106%) contrast(101%)"
+            case EventType.call:
+                return "invert(61%) sepia(84%) saturate(6031%) hue-rotate(184deg) brightness(93%) contrast(102%)"
+            case EventType.catchup:
+                return "invert(47%) sepia(86%) saturate(2495%) hue-rotate(145deg) brightness(93%) contrast(101%)"
+        }
+    }
+
     listView() {
         return (
-            <ol>
-                {this.meetings.map((meeting) => {
-                    return (
+            <ul className={"meetings-overview-meetings"}>
+                {this.meetings.map((meeting) =>
+                    (
                         <li>
-                            <div className={"meetings-overview-meeting-color-tab"}/>
-                            <h6 className={"meetings-overview-meeting-title"}>{meeting.name}</h6>
-                            <span className={"meetings-overview-meeting-time"}>{meeting.time}</span>
-                            <img src={""}/>
-                            <ul>
-                                {meeting.attendees.map((person) => {
-                                    return (
+                            <div className={"meetings-overview-meeting-color-tab"}
+                                 style={{backgroundColor: meeting.category}}/>
+                            <div className={"meetings-overview-meeting-text"}>
+                                <h6>{meeting.name}</h6>
+                                <span>{this.meetingStringFromMeeting(meeting)}</span>
+                                <div className={"meetings-overview-meeting-icon"}
+                                     style={{backgroundColor: meeting.category.replace(')', ', 0.5)').replace('rgb', 'rgba')}}>
+                                    <img src={this.imageForMeetingCategory(meeting.category)}
+                                         style={{filter: this.cssFilterForMeetingCategory(meeting.category)}} alt={""}/>
+                                </div>
+                            </div>
+                            <ul className={"meetings-overview-meeting-attendees"}>
+                                {meeting.attendees.flatMap((person) => {
+                                    if (person.image === undefined) {
+                                        return []
+                                    }
+                                    return [(
                                         <li>
-                                            <img src={person.image.toString()}/>
+                                            <img src={person.image.toString()} alt={`${person.name}'s avatar`}/>
                                         </li>
-                                    )
+                                    )]
                                 })}
                             </ul>
                         </li>
-                    )
-                })}
-            </ol>
+                    ))}
+            </ul>
         )
     }
 

@@ -1,10 +1,10 @@
 import {Person} from './Person'
 
 export enum EventType {
-    call,
-    birthday,
-    catchup,
-    conference
+    call = `#0085e3`,
+    birthday = `#ff623b`,
+    catchup = `#00a89d`,
+    conference = `#b891ff`
 }
 
 export type Event = {
@@ -12,6 +12,7 @@ export type Event = {
     overview: string
     category: EventType
     time: Date
-    duration: number
-    attendees: [Person]
+    duration: number // in minutes
+    attendees: Person[]
 }
+
