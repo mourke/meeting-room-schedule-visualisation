@@ -19,12 +19,13 @@ type MeetingsOverviewViewProps = {
 
 export default class MeetingsOverviewView extends React.Component<MeetingsOverviewViewProps, MeetingsOverviewViewState> {
 
-    private meetings: Meeting[]
+    // A date string key and an array of event values
+    private meetings: Record<string, Meeting[]>
 
     constructor(props: MeetingsOverviewViewProps) {
         super(props);
 
-        this.meetings = []
+        this.meetings = {}
         this.state = {loading: false, error: undefined, empty: true}
     }
 
@@ -33,23 +34,26 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
 
         const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
 
+        const date = new Date()
+        const dateString = date.toDateString()
         // Call API
-        this.meetings = [{
-            name: "Meeting with John",
-            overview: "Sample meeting overview.",
-            time: new Date(),
-            duration: 60,
-            category: EventType.conference,
-            attendees: [
-                {name: "John", image: testImageURL, email: "john@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-        },
+        this.meetings = {
+            [dateString]: [{
+                name: "Meeting with John",
+                overview: "Sample meeting overview.",
+                time: new Date(),
+                duration: 60,
+                category: EventType.conference,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
             {
                 name: "Meeting with John",
                 overview: "Sample meeting overview.",
@@ -100,8 +104,9 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
                     {name: "John", image: testImageURL, email: "john@gmail.com"},
                     {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
             }]
+        }
 
-        this.setState({loading: false, empty: this.meetings.length === 0, error: undefined})
+        this.setState({loading: false, empty: Object.keys(this.meetings).length === 0, error: undefined})
     }
 
     errorView(error: Error) {
@@ -169,33 +174,41 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
     listView() {
         return (
             <ul className={"meetings-overview-meetings"}>
-                {this.meetings.map((meeting) =>
+                {Object.entries(this.meetings).map(([dateString, meetings]) =>
                     (
-                        <li>
-                            <div className={"meetings-overview-meeting-color-tab"}
-                                 style={{backgroundColor: meeting.category}}/>
-                            <div className={"meetings-overview-meeting-text"}>
-                                <h6>{meeting.name}</h6>
-                                <span>{this.meetingStringFromMeeting(meeting)}</span>
-                                <div className={"meetings-overview-meeting-icon"}
-                                     style={{backgroundColor: meeting.category.replace(')', ', 0.5)').replace('rgb', 'rgba')}}>
-                                    <img src={this.imageForMeetingCategory(meeting.category)}
-                                         style={{filter: this.cssFilterForMeetingCategory(meeting.category)}} alt={""}/>
-                                </div>
-                            </div>
-                            <ul className={"meetings-overview-meeting-attendees"}>
-                                {meeting.attendees.flatMap((person) => {
-                                    if (person.image === undefined) {
-                                        return []
-                                    }
-                                    return [(
-                                        <li>
-                                            <img src={person.image.toString()} alt={`${person.name}'s avatar`}/>
-                                        </li>
-                                    )]
-                                })}
-                            </ul>
-                        </li>
+                        <React.Fragment>
+                            <h6 className={"meetings-overview-header-text"}>{dateString}</h6>
+                            {meetings.map(meeting =>
+                                (
+                                    <li>
+                                        <div className={"meetings-overview-meeting-color-tab"}
+                                             style={{backgroundColor: meeting.category}}/>
+                                        <div className={"meetings-overview-meeting-text"}>
+                                            <h6>{meeting.name}</h6>
+                                            <span>{this.meetingStringFromMeeting(meeting)}</span>
+                                            <div className={"meetings-overview-meeting-icon"}
+                                                 style={{backgroundColor: `${meeting.category}59`}}> {/* 59 is alpha 0.35*/}
+                                                <img src={this.imageForMeetingCategory(meeting.category)}
+                                                     style={{filter: this.cssFilterForMeetingCategory(meeting.category)}}
+                                                     alt={""}/>
+                                            </div>
+                                        </div>
+                                        <ul className={"meetings-overview-meeting-attendees"}>
+                                            {meeting.attendees.flatMap((person, index) => {
+                                                if (person.image === undefined || index > 5) { // only have a max of 6 images
+                                                    return []
+                                                }
+                                                return [(
+                                                    <li>
+                                                        <img src={person.image.toString()}
+                                                             alt={`${person.name}'s avatar`}/>
+                                                    </li>
+                                                )]
+                                            })}
+                                        </ul>
+                                    </li>
+                                ))}
+                        </React.Fragment>
                     ))}
             </ul>
         )

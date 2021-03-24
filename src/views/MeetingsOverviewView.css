@@ -14,6 +14,8 @@
     display: inline-flex;
     list-style: none;
     padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
     position: absolute;
     bottom: 10px;
 }
@@ -59,6 +61,10 @@
 .meetings-overview-meeting-text h6 {
     font-weight: 600;
     margin-bottom: 4px;
+    margin-right: 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .meetings-overview-meeting-icon {
@@ -75,6 +81,10 @@
     top: 50%;
     position: relative;
     transform: translateY(-50%);
+}
+
+.meetings-overview-header-text {
+    padding-bottom: 10px;
 }
 
 

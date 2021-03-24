@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/SettingsView.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/SettingsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Person.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Person.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MeetingsOverviewView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MeetingsOverviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SidebarSplitViewController.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +129,8 @@
       <workItem from="1616417040518" duration="3302000" />
       <workItem from="1616433509319" duration="9367000" />
       <workItem from="1616501586774" duration="3115000" />
-      <workItem from="1616505464553" duration="12989000" />
+      <workItem from="1616505464553" duration="13532000" />
+      <workItem from="1616586919998" duration="3674000" />
     </task>
     <servers />
   </component>
