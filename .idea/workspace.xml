@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3edbf41b-ebe5-404c-b95a-466cfabd90a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidebarSplitViewController.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MeetingsOverviewView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MeetingsOverviewView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MeetingsOverviewView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +14,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
       </list>
@@ -72,12 +68,13 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="configurable.stylesheets.stylelint" />
     <property name="ts.external.directory.path" value="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\views" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images\icons" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src\images" />
       <recent name="C:\Users\Mark Bourke\Documents\GitHub\meeting-room-schedule-visualisation\src" />
@@ -130,6 +127,10 @@
       <workItem from="1615976107950" duration="7137000" />
       <workItem from="1616242036528" duration="9131000" />
       <workItem from="1616417040518" duration="3302000" />
+      <workItem from="1616433509319" duration="9367000" />
+      <workItem from="1616501586774" duration="3115000" />
+      <workItem from="1616505464553" duration="13532000" />
+      <workItem from="1616586919998" duration="3674000" />
     </task>
     <servers />
   </component>

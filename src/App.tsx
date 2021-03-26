@@ -1,8 +1,9 @@
 import React from 'react';
-import SidebarSplitViewController from './SidebarSplitViewController'
-import LoginView from "./LoginView";
-import MeetingsOverviewView from "./MeetingsOverviewView";
-import CalendarView from "./CalendarView";
+import SidebarSplitViewController from './views/SidebarSplitViewController'
+import LoginView from './views/LoginView'
+import MeetingsOverviewView from './views/MeetingsOverviewView'
+import CalendarView from './views/CalendarView'
+import SettingsView from './views/SettingsView'
 import calendar from './images/icons/Calendar.svg'
 import settings from './images/icons/Settings.svg'
 
@@ -10,19 +11,19 @@ import settings from './images/icons/Settings.svg'
 
 function App() {
   if (isSignedIn()) {
-    const meetings: any[] = []; // TODO: fetch from API
-    const mainView = <CalendarView meetings={meetings}/>;
-    const detailView = <MeetingsOverviewView meetings={meetings}/>;
-    const mainPage = {mainView, detailView, icon:calendar};
-    const settingsPage = {mainView, detailView, icon:settings}
-    return <SidebarSplitViewController  pages={[mainPage, settingsPage]}/>;
+    const mainView = <CalendarView/>
+    const detailView = <MeetingsOverviewView dateRange={{startDate: new Date(), endDate: new Date()}}/>
+    const mainPage = {mainView, detailView, icon:calendar}
+    const settingsView = <SettingsView />
+    const settingsPage = {mainView: settingsView, icon:settings}
+    return <SidebarSplitViewController  pages={[mainPage, settingsPage]}/>
   } else {
     return <LoginView />;
   }
 }
 
 function isSignedIn() {
-  return false; // TODO: Implement this to read from browser storage
+  return true; // TODO: Implement this to read from browser storage
 }
 
 export default App;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>🎨 Icon Сolor</title>
+    <defs>
+        <path d="M21.0117,7.1454 C20.3857,6.8734 19.6597,6.9914 19.1607,7.4514 L16.9997,9.4514 L16.9997,7.9994 C16.9997,6.3454 15.6547,4.9994 13.9997,4.9994 L4.9997,4.9994 C3.3457,4.9994 1.9997,6.3454 1.9997,7.9994 L1.9997,15.9994 C1.9997,17.6544 3.3457,18.9994 4.9997,18.9994 L13.9997,18.9994 C15.6547,18.9994 16.9997,17.6544 16.9997,15.9994 L16.9997,14.5484 L19.1607,16.5474 C19.4817,16.8444 19.8967,16.9994 20.3197,16.9994 C20.5527,16.9994 20.7877,16.9524 21.0117,16.8544 C21.6207,16.5884 21.9997,16.0194 21.9997,15.3704 L21.9997,8.6294 C21.9997,7.9804 21.6207,7.4114 21.0117,7.1454" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Solid-/-video-fill" transform="translate(-2.000000, -5.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="🎨-Icon-Сolor" fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
