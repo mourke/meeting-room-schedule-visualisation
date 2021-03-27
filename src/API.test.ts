@@ -1,4 +1,5 @@
-import {API, Room} from './API'
+import {API} from './API'
+import {Room} from './models/Room'
 
 /*
 * Tests the getListOfCalendarNamesAndIDs function

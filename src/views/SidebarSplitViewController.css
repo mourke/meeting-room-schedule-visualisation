@@ -1,0 +1,29 @@
+.toolbar {
+    background-color: #6a53e4;
+    height: 100vh;
+    width: 50px;
+}
+
+.toolbar-items-section {
+    position: absolute;
+    top: 30%;
+}
+
+.toolbar-item-img {
+    margin-left: 7px;
+    height: 40px; /* make same height as active indicator to avoid jumping around */
+    width: 40px; /* make all images the same width */
+    object-fit: none; /* but don't adjust the image size/aspect ratio just the frame size */
+}
+
+.toolbar-active-indicator {
+    margin-right: -4px; /* counter the width of the indicator */
+}
+
+.toolbar-item {
+    margin-bottom: 100px;
+}
+
+.splitview-detail-column {
+    border-left: 1px lightgray solid;
+}

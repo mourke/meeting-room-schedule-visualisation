@@ -1,0 +1,137 @@
+.meetings-overview-scroll-container {
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* chrome */
+.meetings-overview-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.meetings-overview-meeting-attendees {
+    display: inline-flex;
+    list-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+
+.meetings-overview-meeting-attendees > li {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.meetings-overview-meeting-attendees > li:last-child {
+    margin-right: 0;
+}
+
+.meetings-overview-meeting-attendees > li > img {
+    height: 100%;
+}
+
+.meetings-overview-meetings {
+    list-style: none;
+    padding: 15px;
+}
+
+.meetings-overview-meetings > li {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.meetings-overview-meetings > li:last-child {
+    margin-bottom: 0;
+}
+
+.meetings-overview-meeting-text {
+    padding: 20px;
+}
+
+.meetings-overview-meeting-text h6 {
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-right: 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.meetings-overview-meeting-icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-top: -20px;
+}
+
+.meetings-overview-meeting-icon > img {
+    margin: auto;
+    display: block;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.meetings-overview-header-text {
+    padding-bottom: 10px;
+}
+
+
+.meetings-overview-heading {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.meetings-overview-meeting-color-tab {
+    width: 7px;
+    height: 100%;
+    position: absolute;
+}
+
+.meetings-overview-empty-view {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.meetings-overview-empty-view-header {
+    color: gray;
+}
+
+.meetings-overview-empty-view-message {
+    color: gray;
+}
+
+.meetings-overview-loading-view {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meetings-overview-loading-view-spinner {
+    border: 8px solid lightgray;
+    border-top: 8px solid #6a53e4;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

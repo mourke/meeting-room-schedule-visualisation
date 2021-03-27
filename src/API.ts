@@ -1,11 +1,7 @@
 import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
+import {Room} from './models/Room'
 
-
-export type Room = {
-    name: string
-    id: string
-}
 
 export namespace API {
     let client: Client = Client.initWithMiddleware({})
@@ -15,7 +11,7 @@ export namespace API {
     * input: -
     * output: array of the Room type
     * */
-    export async function getListOfCalendarNamesAndIDs():Promise<Room[]> {
+    export async function getListOfCalendarNamesAndIDs(): Promise<Room[]> {
         assert(client, "Client must be initialised to call API methods.");
         const calendars = await client.api("/me/calendars").get()
         let rooms:Room[] = []
@@ -32,7 +28,7 @@ export namespace API {
      * output: Calendar object if fetch successful
      *         Undefined if fetch not successful (no corresponding ID or name)
      * */
-    export async function getCalendar(id:string):Promise<object | undefined> {
+    export async function getCalendar(id: string): Promise<object | undefined> {
         assert(client, "Client must be initialised to call API methods.");
         const calendar = await client.api("/me/calendars/" + id ).get()
         if(calendar.id == id){
