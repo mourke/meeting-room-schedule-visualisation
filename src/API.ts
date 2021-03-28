@@ -1,11 +1,7 @@
 import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
+import {Room} from './models/Room'
 
-
-export type Room = {
-    name: string
-    id: string
-}
 
 export namespace API {
     let client: Client
