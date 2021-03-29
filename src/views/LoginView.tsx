@@ -1,12 +1,21 @@
-import './LoginView.css';
-import React from 'react';
+import './LoginView.css'
+import React from 'react'
 
-export default class LoginView extends React.Component {
+type LoginViewState = {
+    login: boolean
+    error?: Error
+    roomSelection: boolean
+}
 
-    constructor() {
-        super({});
+type LoginViewProps = {
+}
 
-        this.loginButtonClicked = this.loginButtonClicked.bind(this);
+export default class LoginView extends React.Component<LoginViewProps, LoginViewState> {
+
+    constructor(props: LoginViewProps) {
+        super(props)
+
+        this.loginButtonClicked = this.loginButtonClicked.bind(this)
     }
 
     loginButtonClicked() {

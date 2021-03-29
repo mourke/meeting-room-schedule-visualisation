@@ -76,7 +76,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
             <Container fluid>
                 <Row>
                     {this.sidebar()}
-                    <Col>{this.currentPage().mainView}</Col>
+                    <Col style={{padding: 0}}>{this.currentPage().mainView}</Col>
                     {detail}
                 </Row>
             </Container>

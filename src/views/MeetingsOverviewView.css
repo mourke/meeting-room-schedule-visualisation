@@ -1,5 +1,6 @@
 .meetings-overview-scroll-container {
     height: 100vh;
+    padding-top: 15px;
     overflow: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -85,12 +86,14 @@
 
 .meetings-overview-header-text {
     padding-bottom: 10px;
+    color: #393a6d;
 }
 
 
 .meetings-overview-heading {
     margin-top: 15px;
     margin-left: 15px;
+    color: #393a6d;
 }
 
 .meetings-overview-meeting-color-tab {

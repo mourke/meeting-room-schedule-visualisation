@@ -191,7 +191,7 @@
       <option name="m_maxLength" value="32" />
     </inspection_tool>
     <inspection_tool class="LoopStatementThatDoesntLoopJS" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="MagicNumberJS" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="MagicNumberJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NegatedConditionalExpressionJS" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="NegatedIfStatementJS" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="NestedAssignmentJS" enabled="true" level="ERROR" enabled_by_default="true" />
