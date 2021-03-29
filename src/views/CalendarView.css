@@ -34,11 +34,15 @@
     display: inline-block;
 }
 
-.calendar-view-stepper-control-right-button {
-    width: 50%;
-
+.calendar-view-header-weekday {
+    text-align: center;
+    color: lightgray;
 }
 
-.calendar-view-stepper-control-left-button {
-    width: 50%;
+.calendar-view-header-current-weekday {
+    color: #6a53e4;
+}
+
+.calendar-view-calendar {
+    overflow: scroll;
 }

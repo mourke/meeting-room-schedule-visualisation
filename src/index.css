@@ -2,3 +2,13 @@
 html, body {
     font-family: 'Nunito Sans', sans-serif;
 }
+
+.MuiFab-primary {
+    background-color: #6a53e4 !important;
+}
+
+.MuiFab-root {
+    position: absolute !important;
+    right: 50px;
+    bottom: 30px;
+}
