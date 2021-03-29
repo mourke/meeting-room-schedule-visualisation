@@ -23,7 +23,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
     private meetings: Record<string, Meeting[]>
 
     constructor(props: MeetingsOverviewViewProps) {
-        super(props);
+        super(props)
 
         this.meetings = {}
         this.state = {loading: false, error: undefined, empty: true}
@@ -133,11 +133,10 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         )
     }
 
-    static readonly MINUTES_IN_MILLISECONDS = 60000
-
     meetingStringFromMeeting(meeting: Meeting) {
         const start = meeting.time
-        const end = new Date(start.getTime() + meeting.duration*MeetingsOverviewView.MINUTES_IN_MILLISECONDS)
+        const minutesInMilliseconds = 60000
+        const end = new Date(start.getTime() + meeting.duration*minutesInMilliseconds)
 
         const addLeadingZero = (time: number) => `0${time}`.slice(-2)
         return `${addLeadingZero(start.getHours())}:${addLeadingZero(start.getMinutes())} - ${addLeadingZero(end.getHours())}:${addLeadingZero(end.getMinutes())}`

@@ -1,0 +1,44 @@
+.calendar-view-stepper-control-left-image {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.calendar-view-stepper-control {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 40px;
+}
+
+.calendar-view-stepper-control > button {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0 !important;
+    border: none !important;
+    height: 100%;
+    margin-top: -30px; /* for some reason this is here because putting the separator div messes up the alignment*/
+}
+
+.calendar-view-current-week {
+    display: inline-block;
+    transform: translateY(-50%);
+    margin-left: 20px;
+    color: #393a6d;
+}
+
+.calendar-view-stepper-control-separator {
+    width: 1px;
+    height: 100%;
+    background-color: lightgray;
+    display: inline-block;
+}
+
+.calendar-view-stepper-control-right-button {
+    width: 50%;
+
+}
+
+.calendar-view-stepper-control-left-button {
+    width: 50%;
+}
