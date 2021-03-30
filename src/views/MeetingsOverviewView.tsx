@@ -137,7 +137,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         const start = meeting.time
         const minutesInMilliseconds = 60000
         const end = new Date(start.getTime() + meeting.duration*minutesInMilliseconds)
-        const options = {hour12: false, hour: '2-digit', minute:'2-digit'}
+        const options: Intl.DateTimeFormatOptions = {hour12: false, hour: "2-digit", minute: "2-digit"}
 
         return `${start.toLocaleTimeString("default", options)} - ${end.toLocaleTimeString("default", options)}`
     }
