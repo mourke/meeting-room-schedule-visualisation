@@ -12,3 +12,14 @@ html, body {
     right: 50px;
     bottom: 30px;
 }
+
+.scroll-container-hidden-bars {
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* chrome */
+.scroll-container-hidden-bars::-webkit-scrollbar {
+    display: none;
+}

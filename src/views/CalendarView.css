@@ -1,3 +1,10 @@
+.calendar-view {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
 .calendar-view-stepper-control-left-image {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -35,6 +42,7 @@
 }
 
 .calendar-view-header-weekday {
+    padding-top: 10px;
     text-align: center;
     color: lightgray;
 }
@@ -44,5 +52,56 @@
 }
 
 .calendar-view-calendar {
-    overflow: scroll;
+    flex-grow: 1;
+    position: relative;
+}
+
+.calendar-view-calendar-days {
+    border-right: 1px solid lightgray;
+    text-align: center;
+}
+
+.calendar-view-header {
+    padding-left: 90px; /* 100 - 10 */
+}
+
+.calendar-view-calendar-times {
+    border-right: 1px solid lightgray;
+    padding-right: 15px;
+    text-align: right;
+    width: 100px;
+    display: table;
+}
+
+.calendar-view-calendar-time {
+    height: 60px;
+}
+
+.calendar-view-calendar-time > span {
+    position: relative;
+    top: -11px;
+    color: lightgray;
+    font-size: small;
+}
+
+.calendar-view-calendar-hours {
+    height: 60px;
+}
+
+.calendar-view-horizontal-separators {
+    border-top: 1px solid lightgray;
+}
+
+.calendar-view-horizontal-separator {
+    height: 60px;
+}
+
+.calendar-view-horizontal-separator::after {
+    content: '';
+    border-bottom: 1px solid lightgray;
+    position: absolute;
+    width: 100%;
+    margin-top: -1px;
+    z-index: 3;
+    pointer-events: none;
 }

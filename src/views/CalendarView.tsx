@@ -13,6 +13,9 @@ type CalendarViewProps = {
 
 export default class CalendarView extends React.Component<CalendarViewProps, CalendarViewState> {
 
+    private readonly DAYS_IN_A_WEEK = 7
+    private readonly HOURS_IN_A_DAY = 24
+
     constructor(props: CalendarViewProps) {
         super(props)
 
@@ -28,7 +31,7 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
 
     weekString(date: Date) {
         const firstDay = this.firstDayOfWeek(date)
-        const lastDay = new Date(date.setDate(firstDay.getDate() + 6))
+        const lastDay = new Date(date.setDate(firstDay.getDate() + this.DAYS_IN_A_WEEK - 1))
         const month = lastDay.toLocaleString('default', { month: 'long' }) // use the month of the last date in case we have changed month
 
         return `${firstDay.getDate()} - ${lastDay.getDate()} ${month}`
@@ -36,19 +39,19 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
 
     previousWeek() {
         const currentDate = this.state.now
-        currentDate.setDate(currentDate.getDate() - 7)
+        currentDate.setDate(currentDate.getDate() - this.DAYS_IN_A_WEEK)
         this.setState({now: currentDate})
     }
 
     nextWeek() {
         const currentDate = this.state.now
-        currentDate.setDate(currentDate.getDate() + 7)
+        currentDate.setDate(currentDate.getDate() + this.DAYS_IN_A_WEEK)
         this.setState({now: currentDate})
     }
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <div style={{marginTop: "30px", paddingLeft: "25px", borderBottom: "1px solid lightgray"}}>
                     <div className={"calendar-view-stepper-control"}>
                         <button onClick={this.previousWeek} type={"button"} className={"btn btn-light"}>
@@ -63,15 +66,12 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
                 </div>
                 <Container className={"calendar-view"}>
                     <Row className={"calendar-view-header"}>
-                        <Col>
-
-                        </Col>
                         {
-                            [...Array(7)].map((value, index) => {
+                            [...Array(this.DAYS_IN_A_WEEK)].map((value, index) => {
                                 const firstDay = this.firstDayOfWeek(this.state.now)
                                 const day = new Date(firstDay.setDate(firstDay.getDate() + index))
                                 const dayName = day.toLocaleString('default', { weekday: 'short' })
-                                const isCurrentDay = (day.getDate() - 1) === this.state.now.getDate() // take index into account
+                                const isCurrentDay = day.getDate() === this.state.now.getDate()
 
                                 return (
                                     <Col className={`calendar-view-header-weekday ${isCurrentDay ? "calendar-view-header-current-weekday" : "" }`}>
@@ -82,29 +82,47 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
                             })
                         }
                     </Row>
-                    <Row className={"calendar-view-calendar"}>
-                        <Col>
+                    <Row className={"calendar-view-calendar scroll-container-hidden-bars"}>
+                        <div className={"calendar-view-calendar-times"}>
                             {
-                                [...Array(24)].map((value, index) => {
+                                [...Array(this.HOURS_IN_A_DAY)].map((value, index) => {
                                     const time = new Date(this.state.now.setHours(index))
                                     return (
-                                        <div>
-                                            <span>{time.toLocaleTimeString("default")}</span>
+                                        <div className={"calendar-view-calendar-time"}>
+                                            <span>{time.toLocaleTimeString("default", {hour12: true, hour: "numeric"})}</span>
                                         </div>
                                     )
                                 })
                             }
-                        </Col>
-                        <Col>1 of 2</Col>
-                        <Col>2 of 2</Col>
-                        <Col>2 of 2</Col>
-                        <Col>2 of 2</Col>
-                        <Col>2 of 2</Col>
-                        <Col>2 of 2</Col>
-                        <Col>2 of 2</Col>
+                        </div>
+                        <Row noGutters={true} style={{flex: 1, marginLeft: "-10px"}}>
+                            <div className={"calendar-view-horizontal-separators"}>
+                                {
+                                    [...Array(this.HOURS_IN_A_DAY)].map((value, index) => {
+                                        return <div className={"calendar-view-horizontal-separator"}/>
+                                    })
+                                }
+                            </div>
+                            {
+                                [...Array(this.DAYS_IN_A_WEEK)].map((value, column) => {
+                                    return (
+                                        <Col className={"calendar-view-calendar-days"}>
+                                            {
+                                                [...Array(this.HOURS_IN_A_DAY)].map((value, row) => {
+                                                    return (
+                                                        <div className={"calendar-view-calendar-hours"}>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </Col>
+                                    )
+                                })
+                            }
+                        </Row>
                     </Row>
                 </Container>
-            </div>
+            </React.Fragment>
         )
     }
 }

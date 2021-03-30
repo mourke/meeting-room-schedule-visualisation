@@ -38,7 +38,7 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
     }
 
     changeTab(index: number) {
-        this.setState({index: index})
+        this.setState({index})
     }
 
     sidebar() {
@@ -53,14 +53,14 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
                             return (
                                 <div className={"toolbar-item"}>
                                     {this.activityIndicatorForIndex(index)}
-                                    <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index === index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon}/>
+                                    <img onClick={() => this.changeTab(index)} style={{opacity: this.state.index === index ? "100%" : "40%"}} className="toolbar-item-img" src={value.icon} alt={`Toolbar item ${index}`}/>
                                 </div>
                             )
                         })
                     }
                 </div>
             </div>
-        );
+        )
     }
 
     render() {
@@ -73,10 +73,12 @@ export default class SidebarSplitViewController extends React.Component<SidebarS
         }
 
         return (
-            <Container fluid>
-                <Row>
+            <Container fluid style={{height: "100vh"}}>
+                <Row style={{height: "100%"}}>
                     {this.sidebar()}
-                    <Col style={{padding: 0}}>{this.currentPage().mainView}</Col>
+                    <Col style={{padding: 0, height: "100%", display: "flex", flexDirection: "column"}}>
+                        {this.currentPage().mainView}
+                    </Col>
                     {detail}
                 </Row>
             </Container>
