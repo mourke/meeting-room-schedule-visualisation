@@ -1,6 +1,6 @@
 .toolbar {
     background-color: #6a53e4;
-    height: 100vh;
+    height: 100%;
     width: 50px;
 }
 
@@ -26,4 +26,5 @@
 
 .splitview-detail-column {
     border-left: 1px lightgray solid;
+    height: 100%;
 }
