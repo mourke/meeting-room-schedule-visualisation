@@ -1,14 +1,6 @@
 .meetings-overview-scroll-container {
-    height: 100vh;
+    height: 100%;
     padding-top: 15px;
-    overflow: scroll;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* chrome */
-.meetings-overview-scroll-container::-webkit-scrollbar {
-    display: none;
 }
 
 .meetings-overview-meeting-attendees {

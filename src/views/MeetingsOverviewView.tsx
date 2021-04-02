@@ -35,7 +35,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
 
         const date = new Date()
-        const dateString = date.toDateString()
+        const dateString = date.toLocaleDateString("default", {weekday: "long", month: "long", day: "numeric"})
         // Call API
         this.meetings = {
             [dateString]: [{
@@ -137,9 +137,9 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         const start = meeting.time
         const minutesInMilliseconds = 60000
         const end = new Date(start.getTime() + meeting.duration*minutesInMilliseconds)
+        const options: Intl.DateTimeFormatOptions = {hour12: false, hour: "2-digit", minute: "2-digit"}
 
-        const addLeadingZero = (time: number) => `0${time}`.slice(-2)
-        return `${addLeadingZero(start.getHours())}:${addLeadingZero(start.getMinutes())} - ${addLeadingZero(end.getHours())}:${addLeadingZero(end.getMinutes())}`
+        return `${start.toLocaleTimeString("default", options)} - ${end.toLocaleTimeString("default", options)}`
     }
 
     imageForMeetingCategory(category: EventType) {
@@ -227,7 +227,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         }
 
         return (
-            <div className={"meetings-overview-scroll-container"}>
+            <div className={"meetings-overview-scroll-container scroll-container-hidden-bars"}>
                 <h5 className={"meetings-overview-heading"}>Meetings</h5>
                 {body}
             </div>

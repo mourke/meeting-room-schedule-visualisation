@@ -6,6 +6,8 @@ import CalendarView from './views/CalendarView'
 import SettingsView from './views/SettingsView'
 import calendar from './images/icons/Calendar.svg'
 import settings from './images/icons/Settings.svg'
+import { Fab } from '@material-ui/core'
+import { Add } from '@material-ui/icons'
 
 // export const APP_COLOR = "#6a53e4";
 
@@ -16,7 +18,14 @@ function App() {
     const mainPage = {mainView, detailView, icon:calendar}
     const settingsView = <SettingsView />
     const settingsPage = {mainView: settingsView, icon:settings}
-    return <SidebarSplitViewController  pages={[mainPage, settingsPage]}/>
+    return (
+        <React.Fragment>
+          <SidebarSplitViewController pages={[mainPage, settingsPage]}/>
+          <Fab color="primary" aria-label="add">
+            <Add />
+          </Fab>
+        </React.Fragment>
+    )
   } else {
     return <LoginView />;
   }
