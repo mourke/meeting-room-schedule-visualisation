@@ -57,3 +57,39 @@
     background-color: white;
     border-radius: 25px;
 }
+.room-selector-screen{
+    position: absolute;
+    text-align: center;
+    width: 1000px;
+    height: 1000px;
+    left: 15%;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+.boardroom-button{
+    position: relative;
+    border-radius: 250px;
+    background-color: #393a6d;
+    top: 150px;
+    height: 200px;
+    width: 200px;
+    border: 3px;
+}
+.boardroom-button:hover{
+    background-color: rgb(241, 205, 0);
+}
+.boardroom-add-button{
+    position: relative;
+    border-radius: 250px;
+    background-color: #8e8e8f;
+    top: 150px;
+    height: 200px;
+    width: 200px;
+    border: 3px;
+}
+.boardroom-divider{
+    width:15px;
+    height:auto;
+    display:inline-block;
+    color: red;
+}

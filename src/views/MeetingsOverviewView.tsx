@@ -212,7 +212,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
             </ul>
         )
     }
-
+    
     render() {
         let body: JSX.Element
 
@@ -225,7 +225,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         } else {
             body = this.listView()
         }
-
+        
         return (
             <div className={"meetings-overview-scroll-container scroll-container-hidden-bars"}>
                 <h5 className={"meetings-overview-heading"}>Meetings</h5>

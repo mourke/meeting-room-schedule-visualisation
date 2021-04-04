@@ -4,6 +4,7 @@ import LoginView from './views/LoginView'
 import MeetingsOverviewView from './views/MeetingsOverviewView'
 import CalendarView from './views/CalendarView'
 import SettingsView from './views/SettingsView'
+
 import calendar from './images/icons/Calendar.svg'
 import settings from './images/icons/Settings.svg'
 import { Fab } from '@material-ui/core'
@@ -12,6 +13,7 @@ import { Add } from '@material-ui/icons'
 // export const APP_COLOR = "#6a53e4";
 
 function App() {
+
   if (isSignedIn()) {
     const mainView = <CalendarView/>
     const detailView = <MeetingsOverviewView dateRange={{startDate: new Date(), endDate: new Date()}}/>
@@ -32,7 +34,7 @@ function App() {
 }
 
 function isSignedIn() {
-  return true; // TODO: Implement this to read from browser storage
+  return false; // TODO: Implement this to read from browser storage
 }
 
 export default App;
