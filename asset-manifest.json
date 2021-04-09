@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/meeting-room-schedule-visualisation/static/css/main.3eef5f91.chunk.css",
-    "main.js": "/meeting-room-schedule-visualisation/static/js/main.16e96f9d.chunk.js",
-    "main.js.map": "/meeting-room-schedule-visualisation/static/js/main.16e96f9d.chunk.js.map",
-    "runtime-main.js": "/meeting-room-schedule-visualisation/static/js/runtime-main.a26b8c61.js",
-    "runtime-main.js.map": "/meeting-room-schedule-visualisation/static/js/runtime-main.a26b8c61.js.map",
+    "main.css": "/meeting-room-schedule-visualisation/static/css/main.e471032c.chunk.css",
+    "main.js": "/meeting-room-schedule-visualisation/static/js/main.9a991dc1.chunk.js",
+    "main.js.map": "/meeting-room-schedule-visualisation/static/js/main.9a991dc1.chunk.js.map",
+    "runtime-main.js": "/meeting-room-schedule-visualisation/static/js/runtime-main.88c37913.js",
+    "runtime-main.js.map": "/meeting-room-schedule-visualisation/static/js/runtime-main.88c37913.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/meeting-room-schedule-visualisation/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.7417cbff.chunk.js": "/meeting-room-schedule-visualisation/static/js/2.7417cbff.chunk.js",
-    "static/js/2.7417cbff.chunk.js.map": "/meeting-room-schedule-visualisation/static/js/2.7417cbff.chunk.js.map",
-    "static/js/3.2a91a3fc.chunk.js": "/meeting-room-schedule-visualisation/static/js/3.2a91a3fc.chunk.js",
-    "static/js/3.2a91a3fc.chunk.js.map": "/meeting-room-schedule-visualisation/static/js/3.2a91a3fc.chunk.js.map",
+    "static/js/2.86e62aab.chunk.js": "/meeting-room-schedule-visualisation/static/js/2.86e62aab.chunk.js",
+    "static/js/2.86e62aab.chunk.js.map": "/meeting-room-schedule-visualisation/static/js/2.86e62aab.chunk.js.map",
+    "static/js/3.536ba834.chunk.js": "/meeting-room-schedule-visualisation/static/js/3.536ba834.chunk.js",
+    "static/js/3.536ba834.chunk.js.map": "/meeting-room-schedule-visualisation/static/js/3.536ba834.chunk.js.map",
     "index.html": "/meeting-room-schedule-visualisation/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.3eef5f91.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/main.3eef5f91.chunk.css.map",
-    "static/js/2.7417cbff.chunk.js.LICENSE.txt": "/meeting-room-schedule-visualisation/static/js/2.7417cbff.chunk.js.LICENSE.txt",
+    "static/css/main.e471032c.chunk.css.map": "/meeting-room-schedule-visualisation/static/css/main.e471032c.chunk.css.map",
+    "static/js/2.86e62aab.chunk.js.LICENSE.txt": "/meeting-room-schedule-visualisation/static/js/2.86e62aab.chunk.js.LICENSE.txt",
     "static/media/Active indicator.a5368acb.svg": "/meeting-room-schedule-visualisation/static/media/Active indicator.a5368acb.svg",
     "static/media/Book.500a8c14.svg": "/meeting-room-schedule-visualisation/static/media/Book.500a8c14.svg",
     "static/media/Calendar.bb613596.svg": "/meeting-room-schedule-visualisation/static/media/Calendar.bb613596.svg",
@@ -25,10 +25,10 @@
     "static/media/Settings.2cbb9c21.svg": "/meeting-room-schedule-visualisation/static/media/Settings.2cbb9c21.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a26b8c61.js",
+    "static/js/runtime-main.88c37913.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.7417cbff.chunk.js",
-    "static/css/main.3eef5f91.chunk.css",
-    "static/js/main.16e96f9d.chunk.js"
+    "static/js/2.86e62aab.chunk.js",
+    "static/css/main.e471032c.chunk.css",
+    "static/js/main.9a991dc1.chunk.js"
   ]
 }
