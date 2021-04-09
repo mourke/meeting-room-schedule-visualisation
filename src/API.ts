@@ -2,10 +2,10 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
 import {Room} from './models/Room'
 import {Person} from './models/Person'
-import {Event, EventType} from './models/Event'
+import {Event as Meeting, Event, EventType} from './models/Event'
 
 
-export namespace API {
+export module API {
     let client: Client
 
     /*
@@ -18,8 +18,7 @@ export namespace API {
         const calendars = await client.api("/me/calendars").get()
         const rooms:Room[] = []
         for (const value of calendars.value) {
-            rooms.push(value.name)
-            rooms.push(value.id)
+            rooms.push({name: value.name, id: value.id})
         }
         return rooms
     }
@@ -47,23 +46,82 @@ export namespace API {
     * output: dictionary with dates and keys and arrays of meeting objects as values (first element = most recent)
     *         undefined if fetch not successful
     * */
-    export async function getMeetings(id:string, startDate:Date, endDate:Date):Promise<{[key:string]: object[]}|undefined> {
-        assert(client, "Client must be initialised to call API methods.");
-        const startDateTime = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}T${startDate.getHours()}:${startDate.getMinutes()}:${startDate.getSeconds()}`
-        const endDateTime  = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
-        const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
-        if (meetings.hasOwnProperty("value")) {
-            const dateMeetingDictionary: {[key:string]: object[]} = {}
-            for (const meeting of meetings) {
-                const meetingDate = meeting.start.dateTime.split("T").pop()
-                if (!dateMeetingDictionary[meetingDate]) {
-                    dateMeetingDictionary[meetingDate] = []
-                }
-                dateMeetingDictionary[meetingDate].push(meeting)
-            }
-            return dateMeetingDictionary
+    export async function getMeetings(id: string, startDate: Date, endDate: Date): Promise<Record<string, Meeting[]> | undefined> {
+        const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+        const today = new Date()
+        const dateString = today.toDateString()
+        const eightThirty = new Date(today)
+        eightThirty.setHours(8, 30)
+        const twelve = new Date(today)
+        twelve.setHours(12, 0)
+        const oneThirty = new Date(today)
+        oneThirty.setHours(13, 30)
+        const three = new Date(today)
+        three.setHours(15, 6)
+        return {
+            [dateString]: [{
+                name: "Kickoff Meeting",
+                overview: "Sample meeting overview.",
+                time: eightThirty,
+                duration: 170,
+                category: EventType.conference,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            },
+                {
+                    name: "Planning",
+                    overview: "Sample meeting overview.",
+                    time: twelve,
+                    duration: 60,
+                    category: EventType.birthday,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+                },
+                {
+                    name: "Design Review",
+                    overview: "Sample meeting overview.",
+                    time: oneThirty,
+                    duration: 60,
+                    category: EventType.call,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+                },
+                {
+                    name: "Project Meeting",
+                    overview: "Sample meeting overview.",
+                    time: three,
+                    duration: 46,
+                    category: EventType.catchup,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+                }]
         }
-        return undefined
+        // assert(client, "Client must be initialised to call API methods.")
+        // const startDateTime = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}T${startDate.getHours()}:${startDate.getMinutes()}:${startDate.getSeconds()}`
+        // const endDateTime  = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
+        // const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
+        // if (meetings.hasOwnProperty("value")) {
+        //     const dateMeetingDictionary: {[key:string]: object[]} = {}
+        //     for (const meeting of meetings) {
+        //         const meetingDate = meeting.start.dateTime.split("T").pop()
+        //         if (!dateMeetingDictionary[meetingDate]) {
+        //             dateMeetingDictionary[meetingDate] = []
+        //         }
+        //         dateMeetingDictionary[meetingDate].push(meeting)
+        //     }
+        //     return dateMeetingDictionary
+        // }
+        // return undefined
     }
 
     /*

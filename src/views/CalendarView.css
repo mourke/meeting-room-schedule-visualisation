@@ -73,10 +73,6 @@
     display: table;
 }
 
-.calendar-view-calendar-time {
-    height: 60px;
-}
-
 .calendar-view-calendar-time > span {
     position: relative;
     top: -11px;
@@ -84,16 +80,8 @@
     font-size: small;
 }
 
-.calendar-view-calendar-hours {
-    height: 60px;
-}
-
 .calendar-view-horizontal-separators {
     border-top: 1px solid lightgray;
-}
-
-.calendar-view-horizontal-separator {
-    height: 60px;
 }
 
 .calendar-view-horizontal-separator::after {
@@ -104,4 +92,28 @@
     margin-top: -1px;
     z-index: 3;
     pointer-events: none;
+}
+
+.calendar-view-calendar-meeting {
+    position: absolute;
+    z-index: 3; /* make it above the separators */
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+}
+
+.calendar-view-calendar-meeting > p {
+    font-size: small;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.calendar-view-calendar-meeting-name {
+    color: white;
+}
+
+.calendar-view-calendar-meeting-time {
+    color: rgba(255, 255, 255, 0.6);
 }
