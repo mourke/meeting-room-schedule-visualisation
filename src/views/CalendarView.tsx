@@ -110,6 +110,16 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
         return ((this.CELL_HEIGHT/60) * time.getMinutes()) + this.CELL_HEIGHT * time.getHours()
     }
 
+    currentTimeIndicator() {
+        const offset = this.meetingTimeToYOffset(this.state.now)
+        return (
+            <React.Fragment>
+                <div className={"calendar-view-calendar-time-now-ball"} style={{top: offset}}/>
+                <div className={"calendar-view-calendar-time-now-bar"} style={{top: offset}}/>
+            </React.Fragment>
+        )
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -166,8 +176,11 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
                                 }
                             </div>
                             {
-                                [...Array(this.DAYS_IN_A_WEEK)].map((value, column) =>
-                                    (
+                                [...Array(this.DAYS_IN_A_WEEK)].map((value, column) => {
+                                    const firstDay = this.firstDayOfWeek(this.state.currentWeek)
+                                    const currentDay = new Date(firstDay)
+                                    currentDay.setDate(firstDay.getDate() + column)
+                                    return (
                                         <Col className={"calendar-view-calendar-days"}>
                                             {
                                                 [...Array(this.HOURS_IN_A_DAY)].map((value, row) => <div
@@ -175,16 +188,13 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
                                             }
                                             {
                                                 Object.entries(this.state.meetings).filter((value) => {
-                                                    const firstDay = this.firstDayOfWeek(this.state.currentWeek)
-                                                    const currentDay = new Date(firstDay)
-                                                    currentDay.setDate(firstDay.getDate() + column)
                                                     const dateString = value[0]
                                                     const day = new Date(dateString)
                                                     return this.datesAreSameDay(day, currentDay)
                                                 })[0]?.flatMap((value) => (typeof value === "string") ? [] : (value as Meeting[])).map((meeting) => (
                                                     <div className={"calendar-view-calendar-meeting"} style={
                                                         {
-                                                            backgroundColor: meeting.category,
+                                                            backgroundColor: `${meeting.category}CC`, // CC is the HEX code for 80% transparency
                                                             top: this.meetingTimeToYOffset(meeting.time),
                                                             height: this.meetingDurationToHeight(meeting.duration)
                                                         }
@@ -194,8 +204,11 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
                                                     </div>
                                                 ))
                                             }
+                                            {
+                                                this.datesAreSameDay(this.state.now, currentDay) ? this.currentTimeIndicator() : undefined
+                                            }
                                         </Col>
-                                    ))
+                                    )})
                             }
                         </Row>
                     </Row>

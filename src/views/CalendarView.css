@@ -117,3 +117,24 @@
 .calendar-view-calendar-meeting-time {
     color: rgba(255, 255, 255, 0.6);
 }
+
+.calendar-view-calendar-time-now-ball {
+    background: #6a53e4;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    height: 12px;
+    margin-left: -6.5px;
+    margin-top: -5px;
+    width: 12px;
+    z-index: 5; /* above everything */
+}
+
+.calendar-view-calendar-time-now-bar {
+    position: absolute;
+    z-index: 5; /* above everything */
+    border-top: #6a53e4 solid 2px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
