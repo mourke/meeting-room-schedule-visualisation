@@ -48,3 +48,13 @@ test.skip("getMeetingsToday", () => {
     API.getMeetingsToday(idOfFirstRoom).then((value) =>  {events = value})
     expect(events).not.toMatchObject(typeof undefined)
 })
+
+
+test.skip("checkForMeetingClash", () => {
+    let rooms:Room[] = []
+    API.getListOfCalendarNamesAndIDs().then((value) =>  {rooms = value})
+    const idOfFirstRoom = rooms[0].id
+    let meetingClash: Boolean | undefined
+    API.checkForMeetingClash(idOfFirstRoom, new Date(), 60).then((value) =>  {meetingClash = value})
+    expect(meetingClash).not.toMatchObject(typeof undefined)
+})
