@@ -15,7 +15,6 @@ import {
     bindPopover,
 } from 'material-ui-popup-state/hooks'
 import Popover from '@material-ui/core/Popover'
-import {API} from "./API";
 import {Event as Meeting} from "./models/Event";
 
 
