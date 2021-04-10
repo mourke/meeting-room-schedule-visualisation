@@ -149,7 +149,7 @@ export module API {
     * */
 
     export async function addMeeting(id:string, name:string, category:EventType, date:Date, duration:number, location:string, description:string, attendees:Person[]):Promise<object|undefined>{
-        assert(client, "Client must be initialised to call API methods.");
+        /*assert(client, "Client must be initialised to call API methods.");
         const endDate = new Date(date.getTime() + duration*60000)
         const startDateTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         const endDateTime = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
@@ -185,7 +185,30 @@ export module API {
         if (response.hasOwnProperty("error")) {
             return undefined
         }
-        return response
+        return response*/
+        return {response:"response"}
+    }
+
+
+
+    /*
+    * description: checks if meeting user wants to add clashes with another meeting
+    * input: id OR name of calendar(meeting room), date of the start of meeting, duration of meeting in minutes
+    * output: true if there is a meeting clash
+    *         false if there is no meeting clash
+    *         undefined if an error occured
+    * */
+    export async function checkForMeetingClash(id:string, date:Date, duration:number):Promise<Boolean|undefined>{
+        assert(client, "Client must be initialised to call API methods.");
+        /*const endDate = new Date(date.getTime() + duration*60000)
+        const startDateTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        const endDateTime = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
+        const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
+        if (meetings.hasOwnProperty("value")) {
+            return Object.keys(meetings.value).length === 0;
+        }
+        return undefined*/
+        return false
     }
 
 
