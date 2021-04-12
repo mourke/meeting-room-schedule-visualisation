@@ -123,7 +123,7 @@ export default class CalendarView extends React.Component<CalendarViewProps, Cal
     render() {
         return (
             <React.Fragment>
-                <div style={{marginTop: "30px", paddingLeft: "25px", borderBottom: "1px solid lightgray"}}>
+                <div style={{marginTop: "30px", paddingLeft: "25px", borderBottom: "1px solid rgba(211, 211, 211, 0.5)"}}>
                     <div className={"calendar-view-stepper-control"}>
                         <button onClick={this.previousWeek} type={"button"} className={"btn btn-light"}>
                             <img className={"calendar-view-stepper-control-left-image"} src={RightChevron} alt={"Go back a week"}/>

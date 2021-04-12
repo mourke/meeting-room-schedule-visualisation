@@ -57,7 +57,7 @@
 }
 
 .calendar-view-calendar-days {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid rgba(211, 211, 211, 0.5);
     text-align: center;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .calendar-view-calendar-times {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid rgba(211, 211, 211, 0.5);
     padding-right: 15px;
     text-align: right;
     width: 100px;
@@ -81,12 +81,12 @@
 }
 
 .calendar-view-horizontal-separators {
-    border-top: 1px solid lightgray;
+    border-top: 1px solid rgba(211, 211, 211, 0.5);
 }
 
 .calendar-view-horizontal-separator::after {
     content: '';
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5);
     position: absolute;
     width: 100%;
     margin-top: -1px;

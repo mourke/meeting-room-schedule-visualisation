@@ -50,61 +50,61 @@ export module API {
         const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
         const today = new Date()
         const dateString = today.toDateString()
-        const eightThirty = new Date(today)
-        eightThirty.setHours(8, 30)
-        const twelve = new Date(today)
-        twelve.setHours(12, 0)
-        const oneThirty = new Date(today)
-        oneThirty.setHours(13, 30)
-        const three = new Date(today)
-        three.setHours(15, 6)
+        const nine = new Date(today)
+        nine.setHours(9, 0)
+        const eleven = new Date(today)
+        eleven.setHours(11, 0)
+        const twoThirty = new Date(today)
+        twoThirty.setHours(14, 30)
+        const sevenFifty = new Date(today)
+        sevenFifty.setHours(7, 50)
         return {
             [dateString]: [{
                 name: "Kickoff Meeting",
                 overview: "Sample meeting overview.",
-                time: eightThirty,
-                duration: 170,
+                time: nine,
+                duration: 110,
                 category: EventType.conference,
                 attendees: [
                     {name: "John", image: testImageURL, email: "john@gmail.com"},
                     {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
                     {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
                     {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
                     {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-                {
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1).toDateString()]: [{
                     name: "Planning",
                     overview: "Sample meeting overview.",
-                    time: twelve,
+                    time: twoThirty,
                     duration: 60,
                     category: EventType.birthday,
                     attendees: [
                         {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
                         {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-                },
-                {
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2).toDateString()]: [{
                     name: "Design Review",
                     overview: "Sample meeting overview.",
-                    time: oneThirty,
+                    time: eleven,
                     duration: 60,
                     category: EventType.call,
                     attendees: [
                         {name: "John", image: testImageURL, email: "john@gmail.com"},
                         {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-                },
-                {
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3).toDateString()]: [{
                     name: "Project Meeting",
                     overview: "Sample meeting overview.",
-                    time: three,
-                    duration: 46,
+                    time: sevenFifty,
+                    duration: 60,
                     category: EventType.catchup,
                     attendees: [
                         {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
                         {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-                }]
+            }]
         }
         // assert(client, "Client must be initialised to call API methods.")
         // const startDateTime = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}T${startDate.getHours()}:${startDate.getMinutes()}:${startDate.getSeconds()}`
