@@ -57,7 +57,7 @@
 }
 
 .calendar-view-calendar-days {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid rgba(211, 211, 211, 0.5);
     text-align: center;
 }
 
@@ -66,15 +66,11 @@
 }
 
 .calendar-view-calendar-times {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid rgba(211, 211, 211, 0.5);
     padding-right: 15px;
     text-align: right;
     width: 100px;
     display: table;
-}
-
-.calendar-view-calendar-time {
-    height: 60px;
 }
 
 .calendar-view-calendar-time > span {
@@ -84,24 +80,61 @@
     font-size: small;
 }
 
-.calendar-view-calendar-hours {
-    height: 60px;
-}
-
 .calendar-view-horizontal-separators {
-    border-top: 1px solid lightgray;
-}
-
-.calendar-view-horizontal-separator {
-    height: 60px;
+    border-top: 1px solid rgba(211, 211, 211, 0.5);
 }
 
 .calendar-view-horizontal-separator::after {
     content: '';
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5);
     position: absolute;
     width: 100%;
     margin-top: -1px;
     z-index: 3;
+    pointer-events: none;
+}
+
+.calendar-view-calendar-meeting {
+    position: absolute;
+    z-index: 3; /* make it above the separators */
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+}
+
+.calendar-view-calendar-meeting > p {
+    font-size: small;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.calendar-view-calendar-meeting-name {
+    color: white;
+}
+
+.calendar-view-calendar-meeting-time {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.calendar-view-calendar-time-now-ball {
+    background: #6a53e4;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    height: 12px;
+    margin-left: -6.5px;
+    margin-top: -5px;
+    width: 12px;
+    z-index: 5; /* above everything */
+}
+
+.calendar-view-calendar-time-now-bar {
+    position: absolute;
+    z-index: 5; /* above everything */
+    border-top: #6a53e4 solid 2px;
+    left: 0;
+    right: 0;
     pointer-events: none;
 }
