@@ -129,7 +129,11 @@ export namespace API {
         }
         return response
     }
-
+    /*
+    * description: deletes event with given id
+    * input: event id 
+    * output: delete meeting object if successful or undefined if not successful
+    * */
     export async function deleteMeeting(id:string):Promise<object|undefined>{
         assert(client, "Client must be initialised to call API methods.");
         const deleteM = await client.api(`/me/calendars/${id}/events`).delete()
