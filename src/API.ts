@@ -213,7 +213,7 @@ export module API {
     /*
     * description: deletes event with given id
     * input: event id 
-    * output: delete meeting object if successful or undefined if not successful
+    * output: true if successful or undefined if not successful
     * */
     export async function deleteMeeting(id:string):Promise<Boolean|undefined>{
         assert(client, "Client must be initialised to call API methods.");
