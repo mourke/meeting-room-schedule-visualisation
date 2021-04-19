@@ -215,13 +215,13 @@ export module API {
     * input: event id 
     * output: delete meeting object if successful or undefined if not successful
     * */
-    export async function deleteMeeting(id:string):Promise<object|undefined>{
+    export async function deleteMeeting(id:string):Promise<Boolean|undefined>{
         assert(client, "Client must be initialised to call API methods.");
         const deleteM = await client.api(`/me/calendars/${id}/events`).delete()
         if (deleteM.hasOwnProperty("error")) {
             return undefined
         }
-        return deleteM
+        return true
     }
 
 
