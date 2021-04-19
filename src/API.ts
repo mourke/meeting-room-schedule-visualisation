@@ -1,6 +1,8 @@
 import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
 import {Room} from './models/Room'
+import {Person} from './models/Person'
+import {Event, EventType} from './models/Event'
 
 
 export namespace API {
@@ -28,7 +30,7 @@ export namespace API {
      * output: Calendar object if fetch successful
      *         Undefined if fetch not successful (no corresponding ID or name)
      * */
-    export async function getCalendar(id:string):Promise<object | undefined> {
+    export async function getCalendar(id:string):Promise<object|undefined> {
         assert(client, "Client must be initialised to call API methods.");
         const calendar = await client.api(`/me/calendars/${id}`).get()
         if (calendar.id === id) {
@@ -81,6 +83,53 @@ export namespace API {
         }
         return undefined
     }
+
+    /*
+    * description: creates and adds events with given input parameters
+    * input: id OR name of calendar(meeting room), name of meeting, category of meeting, start date of meeting, duration of meeting in minutes, location of meeting, description of meeting, attendees in meeting
+    * output: meeting object if successful or undefined if not successful
+    * */
+
+    export async function addMeeting(id:string, name:string, category:EventType, date:Date, duration:number, location:string, description:string, attendees:Person[]):Promise<object|undefined>{
+        assert(client, "Client must be initialised to call API methods.");
+        const endDate = new Date(date.getTime() + duration*60000)
+        const startDateTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        const endDateTime = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
+
+        const meetingAttendees:{emailAddress: {address: string, name: string}, type: string}[] = []
+        for (const attendee of attendees) {
+            meetingAttendees.push({emailAddress: {address: attendee.email,name: attendee.name},type:"required"})
+        }
+
+        const event = {
+            subject: name,
+            body: {
+                contentType: "text",
+                content: description
+            },
+            categories: [category],
+            start: {
+                dateTime: startDateTime,
+                timeZone: "IE"
+            },
+            end: {
+                dateTime: endDateTime,
+                timeZone: "IE"
+            },
+            location: {
+                display: location
+            },
+            attendees: meetingAttendees
+        }
+
+        const response = await client.api(`/me/calendars/${id}/events`).post(event)
+        //not sure about this part, will need access to api to test
+        if (response.hasOwnProperty("error")) {
+            return undefined
+        }
+        return response
+    }
+
 
 
 }
