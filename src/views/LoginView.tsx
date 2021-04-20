@@ -28,7 +28,7 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
                 <button className={"boardroom-button"}>Button</button> <div className={("boardroom-divider")}> </div>
                 <button className={"boardroom-button"}>Button</button> <div className={("boardroom-divider")}> </div>
                 <button className={"boardroom-button"}>Button</button> <div className={("boardroom-divider")}> </div>
-                <button className={"boardroom-add-button"} onClick={(this.addRoom() )}>Add?</button>
+                <button className={"boardroom-add-button"} onClick={this.addRoom}>Add?</button>
                 </div>
             </div>
         )
@@ -36,12 +36,13 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
     }*/
     roomSelectorView(){
             return (
+                
                 <div className={"room-selector-screen"}>
                     <div style={{width: "76%", margin: "0 auto", textAlign: "center"}}>
                     <h1>Which boardroom is being accessed?</h1>
-                    <button className={"boardroom-button"}>Button</button> <div className={("boardroom-divider")}> </div>
-                    <button className={"boardroom-button"}>Button</button> <div className={("boardroom-divider")}> </div>
-                    <button className={"boardroom-add-button"} >Add?</button>
+                    <button className={"boardroom-button"}>Room 1</button> <div className={("boardroom-divider")}> </div>
+                    <button className={"boardroom-button"}>Room 2</button> <div className={("boardroom-divider")}> </div>
+                    <button className={"boardroom-add-button"} /*onClick={this.addRoom}*/>Add+</button>
                     </div>
                 </div>
             )
@@ -58,10 +59,10 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
         let body: JSX.Element
         body = this.roomSelectorView()
         return (
-            <div className={"login-background"}>
+            /*<div className={"login-background"}>                          //uncomment for room selector view
                 {body}
-            </div>
-            /*<div className={"login-background"}>
+            </div>*/
+            <div className={"login-background"}>
                 <div className={"login-popover"}>
                     <div style={{width: "76%", margin: "0 auto", textAlign: "center"}}>
                         <h3 className={"login-header-text"}>Sign in to Microsoft Account</h3>
@@ -70,7 +71,7 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
                     </div>
                     <span className={"login-copyright-text"}>Copyright © TCD SWENG 2021 Group 3</span>
                 </div>
-            </div>*/
+            </div>
         )
     }
 }
