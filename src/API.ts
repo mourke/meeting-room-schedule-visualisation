@@ -2,10 +2,10 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { strict as assert } from 'assert';
 import {Room} from './models/Room'
 import {Person} from './models/Person'
-import {Event, EventType} from './models/Event'
+import {Event as Meeting, Event, EventType} from './models/Event'
 
 
-export namespace API {
+export module API {
     let client: Client
 
     /*
@@ -18,8 +18,7 @@ export namespace API {
         const calendars = await client.api("/me/calendars").get()
         const rooms:Room[] = []
         for (const value of calendars.value) {
-            rooms.push(value.name)
-            rooms.push(value.id)
+            rooms.push({name: value.name, id: value.id})
         }
         return rooms
     }
@@ -47,23 +46,82 @@ export namespace API {
     * output: dictionary with dates and keys and arrays of meeting objects as values (first element = most recent)
     *         undefined if fetch not successful
     * */
-    export async function getMeetings(id:string, startDate:Date, endDate:Date):Promise<{[key:string]: object[]}|undefined> {
-        assert(client, "Client must be initialised to call API methods.");
-        const startDateTime = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}T${startDate.getHours()}:${startDate.getMinutes()}:${startDate.getSeconds()}`
-        const endDateTime  = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
-        const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
-        if (meetings.hasOwnProperty("value")) {
-            const dateMeetingDictionary: {[key:string]: object[]} = {}
-            for (const meeting of meetings) {
-                const meetingDate = meeting.start.dateTime.split("T").pop()
-                if (!dateMeetingDictionary[meetingDate]) {
-                    dateMeetingDictionary[meetingDate] = []
-                }
-                dateMeetingDictionary[meetingDate].push(meeting)
-            }
-            return dateMeetingDictionary
+    export async function getMeetings(id: string, startDate: Date, endDate: Date): Promise<Record<string, Meeting[]> | undefined> {
+        const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+        const today = new Date()
+        const dateString = today.toDateString()
+        const nine = new Date(today)
+        nine.setHours(9, 0)
+        const eleven = new Date(today)
+        eleven.setHours(11, 0)
+        const twoThirty = new Date(today)
+        twoThirty.setHours(14, 30)
+        const sevenFifty = new Date(today)
+        sevenFifty.setHours(7, 50)
+        return {
+            [dateString]: [{
+                name: "Kickoff Meeting",
+                overview: "Sample meeting overview.",
+                time: nine,
+                duration: 110,
+                category: EventType.conference,
+                attendees: [
+                    {name: "John", image: testImageURL, email: "john@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1).toDateString()]: [{
+                    name: "Planning",
+                    overview: "Sample meeting overview.",
+                    time: twoThirty,
+                    duration: 60,
+                    category: EventType.birthday,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2).toDateString()]: [{
+                    name: "Design Review",
+                    overview: "Sample meeting overview.",
+                    time: eleven,
+                    duration: 60,
+                    category: EventType.call,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            }],
+            [new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3).toDateString()]: [{
+                    name: "Project Meeting",
+                    overview: "Sample meeting overview.",
+                    time: sevenFifty,
+                    duration: 60,
+                    category: EventType.catchup,
+                    attendees: [
+                        {name: "John", image: testImageURL, email: "john@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
+                        {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
+            }]
         }
-        return undefined
+        // assert(client, "Client must be initialised to call API methods.")
+        // const startDateTime = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}T${startDate.getHours()}:${startDate.getMinutes()}:${startDate.getSeconds()}`
+        // const endDateTime  = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
+        // const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
+        // if (meetings.hasOwnProperty("value")) {
+        //     const dateMeetingDictionary: {[key:string]: object[]} = {}
+        //     for (const meeting of meetings) {
+        //         const meetingDate = meeting.start.dateTime.split("T").pop()
+        //         if (!dateMeetingDictionary[meetingDate]) {
+        //             dateMeetingDictionary[meetingDate] = []
+        //         }
+        //         dateMeetingDictionary[meetingDate].push(meeting)
+        //     }
+        //     return dateMeetingDictionary
+        // }
+        // return undefined
     }
 
     /*
@@ -91,7 +149,7 @@ export namespace API {
     * */
 
     export async function addMeeting(id:string, name:string, category:EventType, date:Date, duration:number, location:string, description:string, attendees:Person[]):Promise<object|undefined>{
-        assert(client, "Client must be initialised to call API methods.");
+        /*assert(client, "Client must be initialised to call API methods.");
         const endDate = new Date(date.getTime() + duration*60000)
         const startDateTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         const endDateTime = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
@@ -127,7 +185,30 @@ export namespace API {
         if (response.hasOwnProperty("error")) {
             return undefined
         }
-        return response
+        return response*/
+        return {response:"response"}
+    }
+
+
+
+    /*
+    * description: checks if meeting user wants to add clashes with another meeting
+    * input: id OR name of calendar(meeting room), date of the start of meeting, duration of meeting in minutes
+    * output: true if there is a meeting clash
+    *         false if there is no meeting clash
+    *         undefined if an error occured
+    * */
+    export async function checkForMeetingClash(id:string, date:Date, duration:number):Promise<Boolean|undefined>{
+        assert(client, "Client must be initialised to call API methods.");
+        /*const endDate = new Date(date.getTime() + duration*60000)
+        const startDateTime = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}T${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        const endDateTime = `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}T${endDate.getHours()}:${endDate.getMinutes()}:${endDate.getSeconds()}`
+        const meetings = await client.api(`me/calendars/${id}/calendarView?startDateTime=${startDateTime}&endDateTime=${endDateTime}&orderby=start/dateTime`).get()
+        if (meetings.hasOwnProperty("value")) {
+            return Object.keys(meetings.value).length === 0;
+        }
+        return undefined*/
+        return false
     }
 
 

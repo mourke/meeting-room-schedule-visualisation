@@ -25,6 +25,6 @@
 }
 
 .splitview-detail-column {
-    border-left: 1px lightgray solid;
+    border-left: 1px solid rgba(211, 211, 211, 0.5);
     height: 100%;
 }

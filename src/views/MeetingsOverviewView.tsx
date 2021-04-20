@@ -1,6 +1,6 @@
 import './MeetingsOverviewView.css'
 import React from 'react'
-//import API from '../API'
+import {API} from '../API'
 import {Event as Meeting, EventType} from '../models/Event'
 import Book from '../images/icons/Book.svg'
 import Camera from '../images/icons/Camera.svg'
@@ -29,83 +29,19 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         this.state = {loading: false, error: undefined, empty: true}
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         this.setState({loading: true})
 
-        const testImageURL = new URL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
-
-        const date = new Date()
-        const dateString = date.toLocaleDateString("default", {weekday: "long", month: "long", day: "numeric"})
         // Call API
-        this.meetings = {
-            [dateString]: [{
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.conference,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-            {
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.birthday,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-            {
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.call,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-            {
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.catchup,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-            {
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.conference,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            },
-            {
-                name: "Meeting with John",
-                overview: "Sample meeting overview.",
-                time: new Date(),
-                duration: 60,
-                category: EventType.conference,
-                attendees: [
-                    {name: "John", image: testImageURL, email: "john@gmail.com"},
-                    {name: "Mark", image: testImageURL, email: "mark@gmail.com"}]
-            }]
+
+        const result = await API.getMeetings("", this.props.dateRange.startDate, this.props.dateRange.endDate)
+
+        if (result === undefined) {
+            // handle error
+            return
         }
 
+        this.meetings = result as Record<string, Meeting[]>
         this.setState({loading: false, empty: Object.keys(this.meetings).length === 0, error: undefined})
     }
 
@@ -133,7 +69,7 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
         )
     }
 
-    meetingStringFromMeeting(meeting: Meeting) {
+    static meetingStringFromMeeting(meeting: Meeting) {
         const start = meeting.time
         const minutesInMilliseconds = 60000
         const end = new Date(start.getTime() + meeting.duration*minutesInMilliseconds)
@@ -176,15 +112,15 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
                 {Object.entries(this.meetings).map(([dateString, meetings]) =>
                     (
                         <React.Fragment>
-                            <h6 className={"meetings-overview-header-text"}>{dateString}</h6>
-                            {meetings.map(meeting =>
+                            <h6 className={"meetings-overview-header-text"}>{new Date(dateString).toLocaleDateString("default", {weekday: "long", month: "long", day: "numeric"})}</h6>
+                            {meetings.map((meeting, index) =>
                                 (
                                     <li>
                                         <div className={"meetings-overview-meeting-color-tab"}
                                              style={{backgroundColor: meeting.category}}/>
                                         <div className={"meetings-overview-meeting-text"}>
                                             <h6>{meeting.name}</h6>
-                                            <span>{this.meetingStringFromMeeting(meeting)}</span>
+                                            <span>{MeetingsOverviewView.meetingStringFromMeeting(meeting)}</span>
                                             <div className={"meetings-overview-meeting-icon"}
                                                  style={{backgroundColor: `${meeting.category}59`}}> {/* 59 is alpha 0.35*/}
                                                 <img src={this.imageForMeetingCategory(meeting.category)}
@@ -231,6 +167,6 @@ export default class MeetingsOverviewView extends React.Component<MeetingsOvervi
                 <h5 className={"meetings-overview-heading"}>Meetings</h5>
                 {body}
             </div>
-        );
+        )
     }
 }
